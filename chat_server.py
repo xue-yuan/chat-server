@@ -25,12 +25,17 @@ _________ .__                __________
         \/     \/     \/             \/                    \/ 
 --------------------------------------------------------------
 """.encode('utf-8')
+COMMAND_LIST = b"!help\tlist all command.     \
+				!l   \tlist all online user. \
+				!q   \tleave the chat."
+
 CLIENT_GREETING_MESSAGE = b"[*] Type Your Name: "
 CLIENT_WELCOME_MESSAGE = b"[!] Welcome to Chatroom!\n"
 CLIENT_LEAVE_MESSAGE = b"[!] Bye Bye!\n"
 
-CHAT_JOIN_MESSAGE = "\n [ {} has Joined the Chat! 🎉 ]\n"
-CHAT_LEAVE_MESSAGE = "\n [ {} has leaved the Chat! 🍺 ]\n"
+CHAT_JOIN_MESSAGE = "\n [ <{}> has Joined the Chat! 🎉 ]\n"
+CHAT_HELP_MESSAGE = "\n [Type !help to see all command.] \n"
+CHAT_LEAVE_MESSAGE = "\n [ <{}> has leaved the Chat! 🍺 ]\n"
 
 # Static Variable
 ClientList = {}
@@ -60,7 +65,10 @@ def handleClient(client_socket, client_address) -> None:
 		message = client_socket.recv(SIZE)
 		LOG('-'*20)
 		LOG(message)
-		if message == b"!q\n":
+
+		if message == b"!help\n":
+			client_socket.send(COMMAND_LIST)
+		elif message == b"!q\n":
 			client_socket.send(CLIENT_LEAVE_MESSAGE)
 			client_socket.close()
 			del ClientList[client_socket]
