@@ -7,7 +7,7 @@ import argparse
 # Argument Parse
 
 # Constant Variable
-HOST = '127.0.0.1' if True else None
+HOST = '0.0.0.0' if True else None
 PORT = 5000
 PAR = 5
 SIZE = 1024
