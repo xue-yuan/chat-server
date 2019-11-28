@@ -60,6 +60,7 @@ def handleClient(client_socket, client_address) -> None:
 				cmd.list(client_socket, ClientList)
 			elif message == b'':
 				LOG("empty")
+				break
 			elif not message.isspace():
 				broadcastMessage(name_tag, message)
 
