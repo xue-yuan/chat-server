@@ -60,6 +60,9 @@ def handleClient(client_socket, client_address) -> None:
 				cmd.list(client_socket, ClientList)
 			elif message == b'':
 				LOG("empty")
+				client_socket.close()
+				del ClientList[client_socket]
+				broadcastMessage(message=msg.CHAT_LEAVE_MESSAGE.format(display_name).encode('utf-8'))
 				break
 			elif not message.isspace():
 				broadcastMessage(name_tag, message)
