@@ -3,7 +3,7 @@
 ## About
 This script implement the basic function of the chat room. 
 
-**Note**
+**Note: ** 
 It is unsecure, unflexible in this version.
 
 ## Usage
@@ -24,7 +24,7 @@ nc IP PORT
 * Colored Text.
 * Private Channel.
 * File Transmit.
-* Use Config File to Manage Configurations of Socket.
+* Use Configer File to Manage Configurations of Server's Socket.
 
 ## Issue
 * Does not catch the exception while launch the server.
