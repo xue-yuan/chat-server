@@ -48,8 +48,9 @@ def handleClient(client_socket, client_address) -> None:
 		try:
 			message = client_socket.recv(SIZE)
 		except OSError:
+			broadcastMessage(message=msg.CHAT_LEAVE_MESSAGE.format(display_name).encode('utf-8'))
 			break
-		
+
 		LOG('-'*20)
 		LOG(message)
 
