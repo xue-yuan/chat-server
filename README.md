@@ -1,9 +1,30 @@
 # Chat Room Server
 
 ## About
-It only implement the basic function of the chat room. And it is unsecure, unflexible in this version.
+This script implement the basic function of the chat room. 
 
-## usage
+**Note**
+It is unsecure, unflexible in this version.
+
+## Usage
+
+* Server-Side:
 ```python
-python chat_server.py
+python chatroom_server.py [PORT]
 ```
+Default Port is 5000.
+
+* Client-Side:
+```bash
+nc IP PORT
+```
+
+## Future Feature
+* Client's Application Instead of `nc`.
+* Colored Text.
+* Private Channel.
+* File Transmit.
+* Use Config File to Manage Configurations of Socket.
+
+## Issue
+* Does not catch the exception while launch the server.
