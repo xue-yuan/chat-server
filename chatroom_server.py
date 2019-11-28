@@ -45,8 +45,11 @@ def handleClient(client_socket, client_address) -> None:
 	name_tag = f"[{display_name}]: ".encode('utf-8')
 
 	while True:
-		message = client_socket.recv(SIZE)
-
+		try:
+			message = client_socket.recv(SIZE)
+		except OSError:
+			break
+		
 		LOG('-'*20)
 		LOG(message)
 
