@@ -1,7 +1,7 @@
 # Chat Room Server
 
 ## About
-This script implement the basic function of the chat room. 
+This simple code implement the basic function of the chat room. 
 
 **Note:** It is unsecure, unflexible version. Wait for update!
 
@@ -27,3 +27,4 @@ nc IP PORT
 
 ## Issue
 * Does not catch the exception while launch the server.
+* Communicate by using TCP, there is no encryption.
